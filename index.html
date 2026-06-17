@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wyjdź z trybu przetrwania | sophie dbc</title>
+<meta name="description" content="Darmowy mini-zeszyt do filmu o trybie przetrwania. 7 dni łagodnego powrotu do siebie. Bez presji, bez „weź się w garść".">
+<meta property="og:title" content="Wyjdź z trybu przetrwania — mini-zeszyt powrotu do siebie">
+<meta property="og:description" content="Darmowy mini-zeszyt do filmu sophie dbc. 7 dni z trybu przetrwania.">
+<meta property="og:image" content="cover.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="cover-email.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0E0C0C;
+    --bg-2:#1A1614;
+    --ink:#EFE3D2;
+    --ink-dim:#B8AC9C;
+    --muted:#857a6e;
+    --rose:#C49A95;
+    --rose-soft:#9B7C77;
+    --gold:#B89A6E;
+    --gold-dark:#8F7758;
+    --sage:#8FA68E;
+    --line:#3A322C;
+    --line-soft:#2A2420;
+    --card:#15110F;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',-apple-system,system-ui,sans-serif;color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;background:var(--bg)}
+
+  .bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at top, #1A1410 0%, var(--bg) 50%, #0a0807 100%);overflow:hidden}
+  .blob{position:absolute;border-radius:50%;filter:blur(100px);opacity:.18;animation:drift 28s ease-in-out infinite}
+  .blob.b1{width:520px;height:520px;background:#5C3A35;top:-120px;left:-100px}
+  .blob.b2{width:460px;height:460px;background:#3a4f3a;bottom:-140px;right:-110px;animation-delay:-9s}
+  .blob.b3{width:380px;height:380px;background:#6E5A3B;top:40%;left:55%;animation-delay:-16s;opacity:.10}
+  @keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(50px,-32px) scale(1.08)}66%{transform:translate(-32px,38px) scale(.94)}}
+
+  .stars{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.4}
+  .stars::before, .stars::after{content:"";position:absolute;inset:0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, #B89A6E 50%, transparent 51%),
+      radial-gradient(1px 1px at 80% 20%, #B89A6E 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 40% 70%, #C49A95 50%, transparent 51%),
+      radial-gradient(1px 1px at 75% 80%, #B89A6E 50%, transparent 51%),
+      radial-gradient(1px 1px at 15% 60%, #C49A95 50%, transparent 51%),
+      radial-gradient(1px 1px at 90% 50%, #B89A6E 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 30% 15%, #B89A6E 50%, transparent 51%),
+      radial-gradient(1px 1px at 65% 90%, #C49A95 50%, transparent 51%);
+    background-size: 100% 100%;
+    animation: twinkle 9s ease-in-out infinite;
+  }
+  .stars::after{animation-delay:-3s;opacity:.5}
+  @keyframes twinkle{0%,100%{opacity:.6}50%{opacity:1}}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;position:relative}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:24px 0;gap:12px;flex-wrap:wrap}
+  .brand{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;letter-spacing:.5px;color:var(--ink)}
+  .brand .dot{color:var(--rose)}
+  .top-links{display:flex;gap:12px;align-items:center}
+  .top-links a{display:inline-flex;align-items:center;gap:7px;color:var(--ink);text-decoration:none;font-size:13px;font-weight:500;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.02);transition:all .2s}
+  .top-links a:hover{border-color:var(--gold);color:var(--gold);background:rgba(184,154,110,.08);transform:translateY(-2px)}
+  .top-links a svg{width:14px;height:14px}
+
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;padding:30px 0 40px;position:relative}
+
+  .eyebrow{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--rose);font-weight:500;margin-bottom:22px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"✦";color:var(--gold);font-size:10px}
+
+  .hero h1{font-family:'Fraunces',serif;font-size:clamp(38px,5.4vw,62px);line-height:1.05;font-weight:400;margin-bottom:18px;letter-spacing:-.6px;color:var(--ink)}
+  .hero h1 em{font-style:italic;color:var(--rose);font-weight:400}
+
+  .lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--ink-dim);margin-bottom:16px;max-width:460px;line-height:1.55}
+  .sub{font-size:14.5px;color:var(--muted);margin-bottom:30px;max-width:460px;line-height:1.7}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;box-shadow:0 24px 60px rgba(0,0,0,.5);max-width:460px;position:relative;overflow:hidden}
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--rose) 70%,transparent)}
+  .card h3{font-family:'Fraunces',serif;font-size:21px;font-weight:500;margin-bottom:6px;color:var(--ink)}
+  .card p.note{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6}
+
+  form{display:flex;flex-direction:column;gap:12px}
+  input[type=email]{width:100%;padding:15px 16px;border:1px solid var(--line);border-radius:11px;font-size:15px;font-family:inherit;background:rgba(255,255,255,.02);color:var(--ink);transition:border-color .2s,box-shadow .2s}
+  input[type=email]::placeholder{color:var(--muted)}
+  input[type=email]:focus{outline:none;border-color:var(--rose);box-shadow:0 0 0 3px rgba(196,154,149,.15);background:rgba(255,255,255,.04)}
+  button{position:relative;background:linear-gradient(135deg,var(--rose),var(--gold));color:var(--bg);border:none;border-radius:999px;padding:15px 22px;font-size:14.5px;font-weight:600;font-family:inherit;cursor:pointer;letter-spacing:.3px;transition:transform .15s,box-shadow .2s,filter .2s;overflow:hidden}
+  button:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(196,154,149,.25);filter:brightness(1.05)}
+  button:active{transform:translateY(0)}
+  button:disabled{opacity:.6;cursor:default;transform:none}
+
+  .consent{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.6}
+  .success{display:none;text-align:center;padding:16px 6px;animation:pop .5s cubic-bezier(.2,1.2,.4,1)}
+  @keyframes pop{0%{opacity:0;transform:scale(.9)}100%{opacity:1;transform:scale(1)}}
+  .success .check{font-size:38px;margin-bottom:8px;display:inline-block;color:var(--gold);animation:bob 3s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .success h3{font-family:'Fraunces',serif;font-size:22px;margin-bottom:10px;color:var(--ink)}
+  .success p{font-size:14px;color:var(--ink-dim);line-height:1.65}
+  .err{display:none;color:#cd6b6b;font-size:13px;margin-top:4px}
+
+  /* === OKŁADKA PDF — prawdziwy obraz === */
+  .photo-col{position:relative;text-align:center}
+  .cover-frame{position:relative;display:inline-block;border-radius:18px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 0 1px var(--line);animation:floaty 8s ease-in-out infinite;max-width:380px;width:100%}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  .cover-frame img{width:100%;height:auto;display:block;border-radius:18px}
+  /* delikatny glow wokół okładki */
+  .cover-glow{position:absolute;inset:-40px;border-radius:30px;background:radial-gradient(ellipse at center, rgba(184,154,110,.18) 0%, transparent 65%);z-index:-1;pointer-events:none}
+
+  .badge{display:inline-block;margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:10px 20px;font-size:12.5px;font-weight:500;letter-spacing:.5px;color:var(--ink-dim);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+  .badge b{color:var(--rose);font-weight:600}
+
+  .quote-sec{text-align:center;padding:60px 0 40px;position:relative}
+  .quote-sec::before{content:"";position:absolute;top:30px;left:50%;transform:translateX(-50%);width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(24px,3.8vw,38px);line-height:1.35;color:var(--ink);max-width:760px;margin:0 auto;font-weight:400}
+  .quote .accent{color:var(--rose);font-style:italic}
+  .quote-attr{margin-top:18px;font-size:12px;letter-spacing:2px;color:var(--muted);text-transform:uppercase}
+  .quote-line{width:60px;height:1px;background:var(--gold);margin:24px auto 0}
+
+  .inside{padding:50px 0 60px}
+  .inside h2{font-family:'Fraunces',serif;font-size:34px;font-weight:400;text-align:center;margin-bottom:8px;color:var(--ink)}
+  .inside h2 em{font-style:italic;color:var(--rose)}
+  .inside .sub-c{text-align:center;color:var(--ink-dim);font-size:15px;margin-bottom:40px;font-style:italic;font-family:'Cormorant Garamond',serif}
+
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 22px;transition:transform .25s,box-shadow .25s,border-color .25s}
+  .feat:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(0,0,0,.5);border-color:var(--gold-dark)}
+  .feat .ico{font-size:24px;margin-bottom:14px;display:inline-block;color:var(--gold);transition:transform .25s}
+  .feat:hover .ico{transform:scale(1.15) rotate(-6deg)}
+  .feat h4{font-family:'Fraunces',serif;font-size:16px;font-weight:500;margin-bottom:8px;color:var(--ink)}
+  .feat p{font-size:13px;color:var(--ink-dim);line-height:1.6}
+
+  .what-inside{padding:30px 0 60px}
+  .what-inside .head{text-align:center;margin-bottom:36px}
+  .what-inside h2{font-family:'Fraunces',serif;font-size:32px;font-weight:400}
+  .what-inside h2 em{font-style:italic;color:var(--rose)}
+  .what-inside .head p{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--ink-dim);font-size:16px;margin-top:6px}
+  .days-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:820px;margin:0 auto}
+  .day-row{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;display:flex;align-items:flex-start;gap:14px;transition:border-color .2s}
+  .day-row:hover{border-color:var(--rose-soft)}
+  .day-row .num{font-family:'Fraunces',serif;font-style:italic;font-size:24px;color:var(--rose);flex-shrink:0;line-height:1}
+  .day-row .t{font-family:'Fraunces',serif;font-size:14.5px;color:var(--ink);font-weight:500;line-height:1.35;margin-bottom:3px}
+  .day-row .d{font-size:12px;color:var(--ink-dim);line-height:1.5}
+
+  .socials{text-align:center;padding:40px 0 70px}
+  .socials h2{font-family:'Fraunces',serif;font-size:28px;font-weight:400;margin-bottom:6px;color:var(--ink)}
+  .socials h2 em{font-style:italic;color:var(--rose)}
+  .socials .lead-s{color:var(--ink-dim);font-size:15px;margin-bottom:30px;font-style:italic;font-family:'Cormorant Garamond',serif}
+  .soc-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:640px;margin:0 auto}
+  .soc-card{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 20px;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+  .soc-card:hover{transform:translateY(-7px);box-shadow:0 26px 50px rgba(0,0,0,.5);border-color:var(--rose-soft)}
+  .soc-card .glow{position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:160px;height:160px;border-radius:50%;filter:blur(60px);opacity:.18;transition:opacity .25s}
+  .soc-card:hover .glow{opacity:.35}
+  .soc-card.yt .glow{background:#ff5252}.soc-card.tt .glow{background:#25f4ee}
+  .soc-icon{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
+  .soc-card.yt .soc-icon{background:#ff3b30;color:#fff}.soc-card.tt .soc-icon{background:#0f0f0f;color:#fff;border:1px solid var(--line)}
+  .soc-icon svg{width:26px;height:26px}
+  .soc-plat{font-family:'Fraunces',serif;font-weight:500;font-size:15px;position:relative;z-index:1}
+  .soc-handle{font-size:13.5px;font-weight:500;color:var(--ink);position:relative;z-index:1}
+  .soc-desc{font-size:12px;color:var(--ink-dim);position:relative;z-index:1;font-style:italic;font-family:'Cormorant Garamond',serif}
+  .soc-cta{margin-top:6px;font-size:11.5px;font-weight:600;letter-spacing:1px;color:var(--gold);position:relative;z-index:1;text-transform:uppercase}
+
+  footer{border-top:1px solid var(--line);padding:40px 0 60px;text-align:center;color:var(--muted);font-size:13px}
+  footer .brand{font-size:20px;margin-bottom:10px;color:var(--ink)}
+  footer p{font-style:italic;font-family:'Cormorant Garamond',serif;font-size:14px}
+
+  @media(max-width:820px){
+    .hero{grid-template-columns:1fr;gap:24px;padding:8px 0 20px}
+    .hero-text{order:1}
+    .photo-col{order:2;max-width:280px;margin:6px auto 0}
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .days-grid{grid-template-columns:1fr}
+    .card{margin:18px auto 0}
+    .lead,.sub{max-width:none}
+  }
+  @media(max-width:480px){
+    .grid{grid-template-columns:1fr}
+    .soc-cards{grid-template-columns:1fr}
+    .topbar{padding:18px 0}
+    .top-links{gap:8px}
+    .top-links a{padding:7px 13px;font-size:12px}
+    .photo-col{max-width:240px}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="bg"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+<div class="stars"></div>
+
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">sophie <span class="dot">·</span> dbc</div>
+    <div class="top-links">
+      <a href="https://www.youtube.com/@sophiedbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>YouTube</a>
+      <a href="https://www.tiktok.com/@sophiedbc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.3v13.4a2.6 2.6 0 1 1-2.6-2.6c.27 0 .53.04.77.12v-3.4a6 6 0 0 0-.77-.05A6 6 0 1 0 15.7 16V9.3a7.5 7.5 0 0 0 4.3 1.36V7.3a4.3 4.3 0 0 1-3.4-1.5z"/></svg>TikTok</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-text reveal">
+      <div class="eyebrow">darmowy materiał · do filmu o trybie przetrwania</div>
+      <h1>Wyjdź z <em>trybu przetrwania</em></h1>
+      <p class="lead">Mini-zeszyt powrotu do siebie. Bez presji. Bez „weź się w garść".</p>
+      <p class="sub">Siedem dni łagodnego sprawdzania: co czuję, gdzie czuję to w ciele, czego potrzebuje mój układ nerwowy. Pytania, mikropraktyki regulacji i miejsce na pisanie. PDF wpada na maila zaraz po zapisie. 🤍</p>
+      <div class="card">
+        <div id="formView">
+          <h3>Pobierz za darmo</h3>
+          <p class="note">Wpisz maila — wyślę Ci zeszyt w tej samej chwili. Plus zaproszenie do newslettera „Nauka Tygodnia".</p>
+          <form id="signupForm">
+            <input type="email" id="email" name="email" placeholder="Twój adres e-mail" required autocomplete="email">
+            <button type="submit" id="submitBtn">Wyślij mi zeszyt 🤍</button>
+            <div class="err" id="errMsg">Coś poszło nie tak — spróbuj jeszcze raz.</div>
+            <p class="consent">Zapisując się, zgadzasz się na otrzymywanie newslettera i kolejnych darmowych materiałów. Możesz wypisać się w każdej chwili.</p>
+          </form>
+        </div>
+        <div class="success" id="successView">
+          <div class="check">✦</div>
+          <h3>Gotowe. Sprawdź skrzynkę.</h3>
+          <p>Zeszyt jest już w drodze na Twojego maila. Jeśli go nie widzisz w ciągu kilku minut — zerknij w „Oferty" albo spam.</p>
+        </div>
+      </div>
+    </div>
+    <div class="photo-col reveal">
+      <div class="cover-frame">
+        <div class="cover-glow"></div>
+        <img src="cover.png" alt="Okładka mini-zeszytu &bdquo;tryb przetrwania&rdquo;">
+      </div>
+      <div class="badge">📓 <b>19 stron</b> · 7 dni · A4 PDF</div>
+    </div>
+  </section>
+
+  <section class="quote-sec reveal">
+    <p class="quote">Nie jesteś leniwa. <span class="accent">Jesteś przeciążona.</span></p>
+    <div class="quote-line"></div>
+    <p class="quote-attr">Wyjdź z trybu przetrwania</p>
+  </section>
+</div>
+
+<div class="wrap">
+  <section class="inside">
+    <h2 class="reveal">Co znajdziesz <em>w środku</em></h2>
+    <p class="sub-c reveal">Każdy dzień to mały, bezpieczny krok. Bez ścigania się ze sobą.</p>
+    <div class="grid">
+      <div class="feat reveal">
+        <div class="ico">✦</div>
+        <h4>Checklista i mapa ciała</h4>
+        <p>Sprawdź, czy Twój układ nerwowy nie nosi za dużo. I gdzie konkretnie.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ico">☾</div>
+        <h4>Trzy stany układu nerwowego</h4>
+        <p>Zamrożenie, mobilizacja, bezpieczeństwo. Twoja mapa na każdy dzień.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ico">❋</div>
+        <h4>7 dni · 7 mikropraktyk</h4>
+        <p>Pytania journalingowe, narzędzia regulacji, mini-kroki dla siebie.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="ico">✶</div>
+        <h4>Zdania ratunkowe</h4>
+        <p>Gotowe formuły, do których możesz wracać, kiedy ciało się alarmuje.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="what-inside reveal">
+    <div class="head">
+      <h2>Tych <em>siedem dni</em></h2>
+      <p>Każdy dzień ma cel, pytania, narzędzie i mini-krok.</p>
+    </div>
+    <div class="days-grid">
+      <div class="day-row reveal"><span class="num">01</span><div><div class="t">Zauważam, nie oceniam</div><div class="d">affect labeling — nazywanie emocji</div></div></div>
+      <div class="day-row reveal"><span class="num">02</span><div><div class="t">Ciało pamięta</div><div class="d">długi wydech, aktywacja nerwu błędnego</div></div></div>
+      <div class="day-row reveal"><span class="num">03</span><div><div class="t">Nie jestem leniwa, jestem przeciążona</div><div class="d">dwie listy — przepisanie języka</div></div></div>
+      <div class="day-row reveal"><span class="num">04</span><div><div class="t">Mój układ nerwowy uczy się bezpieczeństwa</div><div class="d">osobista mapa sygnałów</div></div></div>
+      <div class="day-row reveal"><span class="num">05</span><div><div class="t">Ruch pomaga wrócić do siebie</div><div class="d">łagodna praktyka bez presji</div></div></div>
+      <div class="day-row reveal"><span class="num">06</span><div><div class="t">Odbudowuję zaufanie do siebie</div><div class="d">mini-zobowiązanie, sprawczość</div></div></div>
+      <div class="day-row reveal" style="grid-column:1/-1"><span class="num">07</span><div><div class="t">Mój plan wyjścia z trybu przetrwania</div><div class="d">moja własna checklista powrotu do siebie</div></div></div>
+    </div>
+  </section>
+
+  <section class="socials">
+    <h2 class="reveal">Zobaczmy się <em>gdzie indziej</em></h2>
+    <p class="lead-s reveal">Krótkie pigułki na TikToku, dłuższe rozmowy na YouTube.</p>
+    <div class="soc-cards">
+      <a class="soc-card yt reveal" href="https://www.youtube.com/@sophiedbc" target="_blank" rel="noopener">
+        <span class="glow"></span>
+        <span class="soc-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></span>
+        <span class="soc-plat">YouTube</span><span class="soc-handle">sophie dbc</span>
+        <span class="soc-desc">Tu jest pełny film o trybie przetrwania</span>
+        <span class="soc-cta">Subskrybuj →</span>
+      </a>
+      <a class="soc-card tt reveal" href="https://www.tiktok.com/@sophiedbc" target="_blank" rel="noopener">
+        <span class="glow"></span>
+        <span class="soc-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.8a4.3 4.3 0 0 1-1-2.8h-3.3v13.4a2.6 2.6 0 1 1-2.6-2.6c.27 0 .53.04.77.12v-3.4a6 6 0 0 0-.77-.05A6 6 0 1 0 15.7 16V9.3a7.5 7.5 0 0 0 4.3 1.36V7.3a4.3 4.3 0 0 1-3.4-1.5z"/></svg></span>
+        <span class="soc-plat">TikTok</span><span class="soc-handle">sophie dbc</span>
+        <span class="soc-desc">Codzienne pigułki o układzie nerwowym</span>
+        <span class="soc-cta">Obserwuj →</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="brand">sophie <span style="color:var(--rose)">·</span> dbc</div>
+    <p>Nauka Tygodnia · Bądź ciekawa. Zadawaj pytania. Wracaj do siebie powoli.</p>
+  </footer>
+</div>
+
+<script>
+  const CONFIG = {
+    webhook: "https://hook.eu1.make.com/2bomeyyqk0js3cgumu6dywsh8yi8tpba",
+    freebieId: "tryb_przetrwania"
+  };
+
+  const $ = id => document.getElementById(id);
+
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }})
+  }, { threshold: .15 });
+  document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 4 * 0.06) + 's'; io.observe(el); });
+
+  const form = $('signupForm'), btn = $('submitBtn'), errMsg = $('errMsg');
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const email = $('email').value.trim();
+    if (!email) return;
+    btn.disabled = true; btn.textContent = 'Wysyłam… ✦'; errMsg.style.display = 'none';
+    const body = 'email=' + encodeURIComponent(email) +
+                 '&freebie=' + encodeURIComponent(CONFIG.freebieId) +
+                 '&zrodlo=' + encodeURIComponent('Landing: ' + CONFIG.freebieId);
+    try {
+      await fetch(CONFIG.webhook, {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      });
+      $('formView').style.display = 'none';
+      $('successView').style.display = 'block';
+    } catch (err) {
+      btn.disabled = false; btn.textContent = 'Wyślij mi zeszyt 🤍'; errMsg.style.display = 'block';
+    }
+  });
+</script>
+</body>
+</html>
